@@ -13,11 +13,17 @@ jobs:
           distribution: 'adopt'
           cache: gradle
 
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
 
       - name: Build with Gradle wrapper
-        run: ./gradlew build
+        run: ./gradlew build --no-daemon
         
       - name: Upload artifact
         uses: actions/upload-artifact@v4
