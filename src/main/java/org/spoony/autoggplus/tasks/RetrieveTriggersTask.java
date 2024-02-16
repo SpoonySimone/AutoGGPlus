@@ -1,10 +1,10 @@
-package club.sk1er.mods.autogg.tasks;
+package org.spoony.autoggplus.tasks;
 
-import club.sk1er.mods.autogg.AutoGG;
-import club.sk1er.mods.autogg.handlers.patterns.PatternHandler;
-import club.sk1er.mods.autogg.tasks.data.Server;
-import club.sk1er.mods.autogg.tasks.data.Trigger;
-import club.sk1er.mods.autogg.tasks.data.TriggersSchema;
+import org.spoony.autoggplus.AutoGG;
+import org.spoony.autoggplus.tasks.data.Server;
+import org.spoony.autoggplus.handlers.patterns.PatternHandler;
+import org.spoony.autoggplus.tasks.data.Trigger;
+import org.spoony.autoggplus.tasks.data.TriggersSchema;
 import com.google.gson.Gson;
 import gg.essential.api.utils.WebUtil;
 import org.apache.logging.log4j.LogManager;

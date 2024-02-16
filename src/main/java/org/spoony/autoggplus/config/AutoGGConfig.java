@@ -1,4 +1,4 @@
-package club.sk1er.mods.autogg.config;
+package org.spoony.autoggplus.config;
 
 import gg.essential.vigilance.Vigilant;
 import gg.essential.vigilance.data.Property;
@@ -48,9 +48,16 @@ public class AutoGGConfig extends Vigilant {
         type = PropertyType.SELECTOR, name = "Phrase",
         description = "Choose what message is said on game completion.",
         category = "General", subcategory = "General",
-        options = {"gg", "GG", "gf", "Good Game", "Good Fight", "Good Round! :D"}
+        options = {"gg", "GG", "gf", "Good Game", "Good Fight", "Good Round! :D,"}
     )
     private int autoGGPhrase = 0;
+
+    @Property(
+            type = PropertyType.SWITCH, name = "Randomize the AutoGG phrase",
+            description = "Randomize phrases in order to not get the 'You cannot say the same message twice!' warning.",
+            category = "General", subcategory = "Miscellaneous"
+    )
+    private boolean randomizationEnabled;
 
     @Property(
         type = PropertyType.SWITCH, name = "Second Message",
@@ -63,7 +70,7 @@ public class AutoGGConfig extends Vigilant {
         type = PropertyType.SELECTOR, name = "Phrase",
         description = "Send a secondary message sent after the first GG message.",
         category = "General", subcategory = "Secondary Message",
-        options = {"Have a good day!", "<3", "AutoGG By Sk1er!", "gf", "Good Fight", "Good Round", ":D", "Well played!", "wp"}
+        options = {"Have a good day!", "<3", "gf", "Good Fight", "Good Round", ":D", "Well played!", "wp"}
     )
     private int autoGGPhrase2 = 0;
 
@@ -103,6 +110,8 @@ public class AutoGGConfig extends Vigilant {
     public int getAutoGGPhrase() {
         return autoGGPhrase;
     }
+
+    public boolean IsRandomizationEnabled() {return randomizationEnabled;}
 
     public boolean isSecondaryEnabled() {
         return secondaryEnabled;

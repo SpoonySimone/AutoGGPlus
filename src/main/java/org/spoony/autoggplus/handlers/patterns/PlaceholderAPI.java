@@ -1,4 +1,4 @@
-package club.sk1er.mods.autogg.handlers.patterns;
+package org.spoony.autoggplus.handlers.patterns;
 
 import java.util.HashMap;
 import java.util.Map;

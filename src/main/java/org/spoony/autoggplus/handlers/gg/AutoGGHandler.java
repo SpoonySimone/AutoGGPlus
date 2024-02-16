@@ -1,9 +1,9 @@
-package club.sk1er.mods.autogg.handlers.gg;
+package org.spoony.autoggplus.handlers.gg;
 
-import club.sk1er.mods.autogg.AutoGG;
-import club.sk1er.mods.autogg.handlers.patterns.PatternHandler;
-import club.sk1er.mods.autogg.tasks.data.Server;
-import club.sk1er.mods.autogg.tasks.data.Trigger;
+import org.spoony.autoggplus.AutoGG;
+import org.spoony.autoggplus.handlers.patterns.PatternHandler;
+import org.spoony.autoggplus.tasks.data.Server;
+import org.spoony.autoggplus.tasks.data.Trigger;
 import gg.essential.api.utils.Multithreading;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.EnumChatFormatting;
@@ -12,6 +12,7 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.concurrent.TimeUnit;
+import java.util.Random;
 
 /**
  * Where the magic happens...
@@ -40,7 +41,7 @@ public class AutoGGHandler {
                     }
                 }
 
-                // In case if it's not null and we couldn't find the triggers for the current server.
+                // In case if it's not null, and we couldn't find the triggers for the current server.
                 server = null;
             });
         }
@@ -99,6 +100,8 @@ public class AutoGGHandler {
     }
 
     private void invokeGG() {
+        //We get the phrase chosen in the config
+        final String ggMessage = AutoGG.INSTANCE.getPrimaryGGStrings()[AutoGG.INSTANCE.getAutoGGConfig().getAutoGGPhrase()];
         // Better safe than sorry
         if (server != null) {
             String prefix = server.getMessagePrefix();
@@ -106,11 +109,19 @@ public class AutoGGHandler {
             if (System.currentTimeMillis() - lastGG < 10_000) return;
             lastGG = System.currentTimeMillis();
 
-            String ggMessage = AutoGG.INSTANCE.getPrimaryGGStrings()[AutoGG.INSTANCE.getAutoGGConfig().getAutoGGPhrase()];
-            int delay = AutoGG.INSTANCE.getAutoGGConfig().getAutoGGDelay();
-
-            Multithreading.schedule(() -> Minecraft.getMinecraft().thePlayer.sendChatMessage(prefix.isEmpty() ? ggMessage : prefix + " " + ggMessage), delay, TimeUnit.SECONDS);
-
+            //If randomization is enabled, use Random
+            if (AutoGG.INSTANCE.getAutoGGConfig().IsRandomizationEnabled()) {
+                Random rand = new Random();
+                int ggRandom = rand.nextInt(AutoGG.INSTANCE.getPrimaryGGStringsRandom().length);
+                String ggMessageRandom = AutoGG.INSTANCE.getPrimaryGGStringsRandom()[ggRandom];
+                int delay = AutoGG.INSTANCE.getAutoGGConfig().getAutoGGDelay();
+                Multithreading.schedule(() -> Minecraft.getMinecraft().thePlayer.sendChatMessage(prefix.isEmpty() ? ggMessageRandom : prefix + " " + ggMessageRandom), delay, TimeUnit.SECONDS);
+            //If it isn't enabled, act normal
+            } else {
+                int delay = AutoGG.INSTANCE.getAutoGGConfig().getAutoGGDelay();
+                Multithreading.schedule(() -> Minecraft.getMinecraft().thePlayer.sendChatMessage(prefix.isEmpty() ? ggMessage : prefix + " " + ggMessage), delay, TimeUnit.SECONDS);
+            }
+            //If secondary message is enabled, send it
             if (AutoGG.INSTANCE.getAutoGGConfig().isSecondaryEnabled()) {
                 String secondGGMessage = AutoGG.INSTANCE.getSecondaryGGStrings()[AutoGG.INSTANCE.getAutoGGConfig().getAutoGGPhrase2()];
                 int secondaryDelay = AutoGG.INSTANCE.getAutoGGConfig().getSecondaryDelay() + AutoGG.INSTANCE.getAutoGGConfig().getAutoGGDelay();

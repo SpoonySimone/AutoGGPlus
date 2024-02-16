@@ -1,7 +1,7 @@
-package club.sk1er.mods.autogg.command;
+package org.spoony.autoggplus.command;
 
-import club.sk1er.mods.autogg.AutoGG;
-import club.sk1er.mods.autogg.tasks.RetrieveTriggersTask;
+import org.spoony.autoggplus.AutoGG;
+import org.spoony.autoggplus.tasks.RetrieveTriggersTask;
 import gg.essential.api.EssentialAPI;
 import gg.essential.api.commands.Command;
 import gg.essential.api.commands.DefaultHandler;

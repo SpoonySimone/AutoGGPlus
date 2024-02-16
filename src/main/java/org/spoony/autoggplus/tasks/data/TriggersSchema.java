@@ -1,4 +1,4 @@
-package club.sk1er.mods.autogg.tasks.data;
+package org.spoony.autoggplus.tasks.data;
 
 public class TriggersSchema {
     private final Server[] servers;

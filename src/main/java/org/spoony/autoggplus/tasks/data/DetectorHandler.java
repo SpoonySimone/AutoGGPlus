@@ -1,8 +1,8 @@
-package club.sk1er.mods.autogg.tasks.data;
+package org.spoony.autoggplus.tasks.data;
 
-import club.sk1er.mods.autogg.detectors.IDetector;
-import club.sk1er.mods.autogg.detectors.branding.ServerBrandingDetector;
-import club.sk1er.mods.autogg.detectors.ip.ServerIPDetector;
+import org.spoony.autoggplus.detectors.IDetector;
+import org.spoony.autoggplus.detectors.branding.ServerBrandingDetector;
+import org.spoony.autoggplus.detectors.ip.ServerIPDetector;
 
 public enum DetectorHandler {
     SERVER_BRANDING(new ServerBrandingDetector()),
