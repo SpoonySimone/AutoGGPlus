@@ -9,7 +9,7 @@ plugins {
 val modGroup: String by project
 val modBaseName: String by project
 group = modGroup
-base.archivesName.set("$modBaseName - ${project.version}")
+base.archivesName.set("$modBaseName-${platform.mcVersionStr}")
 
 loom {
     noServerRunConfigs()
@@ -29,7 +29,7 @@ dependencies {
 }
 
 tasks.jar {
-    from(embed.files.filter { !it.name.contains("-dev") }.map { zipTree(it) })
+    from(embed.files.map { zipTree(it) })
 
     manifest.attributes(
         mapOf(
