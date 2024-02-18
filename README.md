@@ -8,12 +8,13 @@ I'll make a Discord server if this fork becomes famous (which I doubt)
 
 ## Developing
 **Requirements:**
-- [JDK (Java Development Kit) 17](https://adoptium.net/temurin/archive/?version=17)
+- JDK (Java Development Kit) 17 - [Download here if you don't have it already](https://adoptium.net/temurin/archive/?version=17)
     
 - A Java IDE, I recommend using [IntelliJ IDEA](https://jetbrains.com/idea/)
  
 ## Building
 The mod is automatically compiled on every push to GitHub Actions, but if you want to compile it yourself:
+
 **Unix-based systems (GNU/Linux, OSX, etc):**
 ```bash
 $ ./gradlew build
