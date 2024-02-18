@@ -9,7 +9,7 @@ plugins {
 val modGroup: String by project
 val modBaseName: String by project
 group = modGroup
-base.archivesName.set("$modBaseName - ${project.version}-SNAPSHOT.jar")
+base.archivesName.set("$modBaseName - ${project.version}")
 
 loom {
     noServerRunConfigs()
