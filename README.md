@@ -8,10 +8,7 @@ I'll make a Discord server if this fork becomes famous (which I doubt)
 
 ## Developing
 **Requirements:**
-- JDK (Java Development Kit) 8
-    * [AdoptOpenJDK](https://adoptopenjdk.net/)
-    * [Other OpenJDK distributions](https://en.wikipedia.org/wiki/OpenJDK#OpenJDK_builds)
-    * [Oracle JDK (proprietary)](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+- [JDK (Java Development Kit) 17](https://adoptium.net/temurin/archive/?version=17)
     
 - A Java IDE, I recommend using [IntelliJ IDEA](https://jetbrains.com/idea/)
  
