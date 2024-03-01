@@ -1,7 +1,7 @@
-package org.spoony.autoggplus.command;
+package me.spoony.autoggplus.command;
 
-import org.spoony.autoggplus.AutoGG;
-import org.spoony.autoggplus.tasks.RetrieveTriggersTask;
+import me.spoony.autoggplus.AutoGG;
+import me.spoony.autoggplus.tasks.RetrieveTriggersTask;
 import gg.essential.api.EssentialAPI;
 import gg.essential.api.commands.Command;
 import gg.essential.api.commands.DefaultHandler;

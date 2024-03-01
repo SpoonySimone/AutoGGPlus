@@ -1,4 +1,4 @@
-package org.spoony.autoggplus.tasks.data;
+package me.spoony.autoggplus.tasks.data;
 
 public class TriggersSchema {
     private final Server[] servers;

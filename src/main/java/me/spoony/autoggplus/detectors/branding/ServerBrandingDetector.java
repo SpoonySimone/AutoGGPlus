@@ -1,7 +1,7 @@
-package org.spoony.autoggplus.detectors.branding;
+package me.spoony.autoggplus.detectors.branding;
 
-import org.spoony.autoggplus.detectors.IDetector;
-import org.spoony.autoggplus.handlers.patterns.PatternHandler;
+import me.spoony.autoggplus.detectors.IDetector;
+import me.spoony.autoggplus.handlers.patterns.PatternHandler;
 import net.minecraft.client.Minecraft;
 
 public class ServerBrandingDetector implements IDetector {

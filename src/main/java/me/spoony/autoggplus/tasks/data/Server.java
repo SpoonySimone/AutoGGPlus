@@ -1,4 +1,4 @@
-package org.spoony.autoggplus.tasks.data;
+package me.spoony.autoggplus.tasks.data;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

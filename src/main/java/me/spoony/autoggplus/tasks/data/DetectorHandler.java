@@ -1,8 +1,8 @@
-package org.spoony.autoggplus.tasks.data;
+package me.spoony.autoggplus.tasks.data;
 
-import org.spoony.autoggplus.detectors.IDetector;
-import org.spoony.autoggplus.detectors.branding.ServerBrandingDetector;
-import org.spoony.autoggplus.detectors.ip.ServerIPDetector;
+import me.spoony.autoggplus.detectors.IDetector;
+import me.spoony.autoggplus.detectors.branding.ServerBrandingDetector;
+import me.spoony.autoggplus.detectors.ip.ServerIPDetector;
 
 public enum DetectorHandler {
     SERVER_BRANDING(new ServerBrandingDetector()),

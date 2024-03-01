@@ -1,4 +1,4 @@
-name: CI
+name: Builds
 on: [push]
 jobs:
   build:
@@ -11,13 +11,17 @@ jobs:
         with:
           java-version: 17
           distribution: 'adopt'
-          cache: gradle
 
       - name: Cache Gradle dependencies
         uses: actions/cache@v4
         with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('build.gradle', 'settings.gradle') }}
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+            **/loom-cache
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
       - name: Change wrapper permissions
         run: chmod +x ./gradlew

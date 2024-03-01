@@ -1,4 +1,4 @@
-package org.spoony.autoggplus.tasks.data;
+package me.spoony.autoggplus.tasks.data;
 
 /**
  * Data holder for a trigger in the server triggers JsonArray

@@ -16,14 +16,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package org.spoony.autoggplus;
+package me.spoony.autoggplus;
 
-import org.spoony.autoggplus.command.AutoGGCommand;
-import org.spoony.autoggplus.config.AutoGGConfig;
-import org.spoony.autoggplus.handlers.gg.AutoGGHandler;
-import org.spoony.autoggplus.handlers.patterns.PlaceholderAPI;
-import org.spoony.autoggplus.tasks.RetrieveTriggersTask;
-import org.spoony.autoggplus.tasks.data.TriggersSchema;
+import me.spoony.autoggplus.tasks.RetrieveTriggersTask;
+import me.spoony.autoggplus.tasks.data.TriggersSchema;
+import me.spoony.autoggplus.command.AutoGGCommand;
+import me.spoony.autoggplus.config.AutoGGConfig;
+import me.spoony.autoggplus.handlers.gg.AutoGGHandler;
+import me.spoony.autoggplus.handlers.patterns.PlaceholderAPI;
 import gg.essential.api.EssentialAPI;
 import gg.essential.api.utils.JsonHolder;
 import gg.essential.api.utils.Multithreading;

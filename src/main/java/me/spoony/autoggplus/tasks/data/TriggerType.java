@@ -1,4 +1,4 @@
-package org.spoony.autoggplus.tasks.data;
+package me.spoony.autoggplus.tasks.data;
 
 public enum TriggerType {
     NORMAL(0),

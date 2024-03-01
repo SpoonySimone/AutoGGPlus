@@ -1,9 +1,9 @@
-package org.spoony.autoggplus.handlers.gg;
+package me.spoony.autoggplus.handlers.gg;
 
-import org.spoony.autoggplus.AutoGG;
-import org.spoony.autoggplus.handlers.patterns.PatternHandler;
-import org.spoony.autoggplus.tasks.data.Server;
-import org.spoony.autoggplus.tasks.data.Trigger;
+import me.spoony.autoggplus.AutoGG;
+import me.spoony.autoggplus.handlers.patterns.PatternHandler;
+import me.spoony.autoggplus.tasks.data.Server;
+import me.spoony.autoggplus.tasks.data.Trigger;
 import gg.essential.api.utils.Multithreading;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.EnumChatFormatting;

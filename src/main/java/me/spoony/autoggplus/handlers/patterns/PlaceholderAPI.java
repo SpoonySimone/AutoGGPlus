@@ -1,4 +1,4 @@
-package org.spoony.autoggplus.handlers.patterns;
+package me.spoony.autoggplus.handlers.patterns;
 
 import java.util.HashMap;
 import java.util.Map;

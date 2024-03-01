@@ -1,7 +1,7 @@
-package org.spoony.autoggplus.detectors.ip;
+package me.spoony.autoggplus.detectors.ip;
 
-import org.spoony.autoggplus.detectors.IDetector;
-import org.spoony.autoggplus.handlers.patterns.PatternHandler;
+import me.spoony.autoggplus.handlers.patterns.PatternHandler;
+import me.spoony.autoggplus.detectors.IDetector;
 import net.minecraft.client.Minecraft;
 
 public class ServerIPDetector implements IDetector {

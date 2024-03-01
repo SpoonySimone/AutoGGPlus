@@ -1,10 +1,10 @@
-package org.spoony.autoggplus.tasks;
+package me.spoony.autoggplus.tasks;
 
-import org.spoony.autoggplus.AutoGG;
-import org.spoony.autoggplus.tasks.data.Server;
-import org.spoony.autoggplus.handlers.patterns.PatternHandler;
-import org.spoony.autoggplus.tasks.data.Trigger;
-import org.spoony.autoggplus.tasks.data.TriggersSchema;
+import me.spoony.autoggplus.AutoGG;
+import me.spoony.autoggplus.tasks.data.Server;
+import me.spoony.autoggplus.handlers.patterns.PatternHandler;
+import me.spoony.autoggplus.tasks.data.Trigger;
+import me.spoony.autoggplus.tasks.data.TriggersSchema;
 import com.google.gson.Gson;
 import gg.essential.api.utils.WebUtil;
 import org.apache.logging.log4j.LogManager;

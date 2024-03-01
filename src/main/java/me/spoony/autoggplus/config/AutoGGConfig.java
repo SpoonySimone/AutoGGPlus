@@ -1,8 +1,9 @@
-package org.spoony.autoggplus.config;
+package me.spoony.autoggplus.config;
 
 import gg.essential.vigilance.Vigilant;
 import gg.essential.vigilance.data.Property;
 import gg.essential.vigilance.data.PropertyType;
+import net.minecraftforge.fml.common.Mod;
 
 import java.io.File;
 

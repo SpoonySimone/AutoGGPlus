@@ -11,7 +11,7 @@
       "SpoonySimone"
     ],
     "credits": "AutoGG+ created by SpoonySimone. Fork of Sk1er's mod",
-    "logoFile": "",
+    "logoFile": "./icon.svg",
     "screenshots": [],
     "dependencies": []
   }
