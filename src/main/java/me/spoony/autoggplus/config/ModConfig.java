@@ -36,7 +36,7 @@ public class ModConfig extends Config {
     public static int delay = 1;
 
     @Info(
-            text = "If you're using 'Randomize GG message', it is recommended to use 'Good Game' or 'Good Fight', as they have more characters that can be randomized.",
+            text = "If you're using 'Randomize GG message', it's recommended to use 'Good Game' or 'Good Fight', as they have more characters that can be randomized.",
             subcategory = "General",
             size = 2,
             type = InfoType.INFO // Types are: INFO, WARNING, ERROR, SUCCESS
@@ -58,14 +58,14 @@ public class ModConfig extends Config {
                     "Good Fight",
             }
     )
-    public static int ggMessage = 0;
+    public static int ggMessage = 6;
 
     @Switch(
             name = "Debug",
             subcategory = "Utilities",
             description = "Enable/disable mod debugging features. Leave off unless you know what you're doing."
     )
-    public static boolean debug = true;
+    public static boolean debug = false;
 
     public ModConfig() {
         super(new Mod(AutoGGPlus.NAME, ModType.UTIL_QOL), AutoGGPlus.MODID + ".json");
