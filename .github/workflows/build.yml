@@ -36,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: AutoGG+
-          path: /home/runner/work/AutoQueue/AutoQueue/versions/1.8.9-forge/build/libs
+          path: /home/runner/work/AutoGGPlus/AutoGGPlus/versions/1.8.9-forge/build/libs
