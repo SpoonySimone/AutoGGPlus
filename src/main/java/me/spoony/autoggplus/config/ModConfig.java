@@ -62,7 +62,7 @@ public class ModConfig extends Config {
 
     @Info(
             text = "Keep this disabled unless you know what you're doing. Enabling this will break the mod functionality.",
-            subcategory = "General",
+            subcategory = "Utilities",
             size = 2,
             type = InfoType.ERROR // Types are: INFO, WARNING, ERROR, SUCCESS
     )
@@ -76,7 +76,7 @@ public class ModConfig extends Config {
     public static boolean debug = false;
 
     public ModConfig() {
-        super(new Mod(AutoGGPlus.NAME, ModType.UTIL_QOL), AutoGGPlus.MODID + ".json");
+        super(new Mod(AutoGGPlus.NAME, ModType.HYPIXEL, "/icon.svg"), AutoGGPlus.MODID + ".json");
         initialize();
     }
 }
