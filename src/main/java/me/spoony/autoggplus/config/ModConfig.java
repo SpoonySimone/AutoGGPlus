@@ -60,6 +60,14 @@ public class ModConfig extends Config {
     )
     public static int ggMessage = 6;
 
+    @Info(
+            text = "Keep this disabled unless you know what you're doing. Enabling this will break the mod functionality.",
+            subcategory = "General",
+            size = 2,
+            type = InfoType.ERROR // Types are: INFO, WARNING, ERROR, SUCCESS
+    )
+    public static boolean ignored1;
+
     @Switch(
             name = "Debug",
             subcategory = "Utilities",
