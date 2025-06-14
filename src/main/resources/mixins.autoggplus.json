@@ -1,0 +1,13 @@
+{
+  "compatibilityLevel": "JAVA_8",
+  "minVersion": "0.7",
+  "package": "me.spoony.autoggplus.mixin",
+  "refmap": "mixins.autoggplus.refmap.json",
+  "injectors": {
+    "maxShiftBy": 5
+  },
+  "client": [
+    "me.spoony.mixin.MinecraftMixin"
+  ],
+  "verbose": true
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "${id}",
+    "name": "${name}",
+    "description": "The best AutoGG mod for Hypixel out there!",
+    "version": "${version}",
+    "mcversion": "${mcVersionStr}",
+    "url": "https://github.com/SpoonySimone/AutoGGPlus",
+    "updateUrl": "",
+    "authorList": [
+      "SpoonySimone"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
