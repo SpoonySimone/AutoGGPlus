@@ -58,7 +58,7 @@ public class ModConfig extends Config {
                     "Good Fight",
             }
     )
-    public static String GGMessage = "gg";
+    public static int ggMessage = 0;
 
     @Switch(
             name = "Debug",

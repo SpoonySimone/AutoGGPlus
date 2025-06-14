@@ -1,5 +1,6 @@
 package me.spoony.autoggplus.tasks;
 
+import cc.polyfrost.oneconfig.utils.hypixel.HypixelUtils;
 import me.spoony.autoggplus.config.ModConfig;
 import net.minecraft.client.Minecraft;
 
@@ -11,19 +12,18 @@ public class SendGG {
 
     //string "auto" or "manual"
     public SendGG(int delay, String type) {
-        String ggMessage;
+        String ggMessage = ConvertDropdown.getGGMessage(ModConfig.ggMessage);
 
         if (ModConfig.randomGG) {
-            ggMessage = RandomizeCharacters.randomize(ModConfig.GGMessage);
-        } else {
-            ggMessage = ModConfig.GGMessage;
+            ggMessage = RandomizeCharacters.randomize(ggMessage);
         }
 
-        if (ModConfig.ModEnabled || type == "manual") {
+        if ((ModConfig.ModEnabled || type == "manual") && HypixelUtils.INSTANCE.isHypixel()) {
+            String finalGgMessage = ggMessage;
             new Timer().schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    mc.thePlayer.sendChatMessage("/ac " + ggMessage);
+                    mc.thePlayer.sendChatMessage("/ac " + finalGgMessage);
                 }
             }, delay * 1000L);
         }
