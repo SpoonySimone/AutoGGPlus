@@ -98,7 +98,7 @@ public class ModConfig extends Config {
     public static boolean debug = false;
 
     public ModConfig() {
-        super(new Mod(AutoGGPlus.NAME, ModType.HYPIXEL, "/icon.svg"), AutoGGPlus.MODID + ".json");
+        super(new Mod(AutoGGPlus.NAME, ModType.HYPIXEL, "/autoggplus_icon.svg"), AutoGGPlus.MODID + ".json");
         initialize();
         addDependency("customGGMessage", "customGGMessageEnabled");
     }
