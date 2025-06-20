@@ -14,10 +14,18 @@ import java.util.TimerTask;
 public class SendGG {
     private static final Minecraft mc = Minecraft.getMinecraft();
     private static final Logger LOGGER = LogManager.getLogger(SendGG.class);
-    String ggMessage = ConvertDropdown.getGGMessage(ModConfig.ggMessage);
+    String ggMessage;
 
     //string "auto" or "manual"
     public SendGG(int delay, String type) {
+        //set ggmessage to custom if enabled
+        if (ModConfig.customGGMessageEnabled) {
+            ggMessage = ModConfig.customGGMessage;
+        } else {
+            ggMessage = ConvertDropdown.getGGMessage(ModConfig.ggMessage);
+        }
+
+        //randomize if enabled in config
         if (ModConfig.randomGG) {
             ggMessage = RandomizeCharacters.randomize(ggMessage);
         }
