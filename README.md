@@ -19,5 +19,36 @@ Compared to other exisiting AutoGG mods, AutoGG+ has some exclusive features, su
 
 <img src=https://raw.githubusercontent.com/SpoonySimone/AutoGGPlus/refs/heads/main/images/files/chat_screen.png width="75%" height="75%"/>
 
+# Commands
+- `/autoggplus` - Opens the configuration menu.
+- `/gg` - Send a GG message in the chat with your configured settings.
+
 # Credits
 Credits to [Sk1er](https://www.youtube.com/@Sk1erDev) for a portion of the triggers list
+
+# Development
+> [!WARNING]
+> This section is meant for developers who want to contribute to the mod or build it locally.
+> 
+> If you just want to use the mod, you can skip ignore this.
+
+To build the mod locally, you have to:
+1. Clone the repository
+   ```
+   git clone https://github.com/SpoonySimone/AutoGGPlus
+   ``` 
+2. Navigate to the cloned repository
+   ```
+   cd AutoGGPlus
+   ```
+3. Build the mod using Gradle
+
+    **Linux**
+    ```
+    ./gradlew build
+    ```
+    **Windows**
+    ```
+    gradlew.bat build
+    ```
+4. The built mod will be located in `/versions/1.8.9-forge/build/libs/`
