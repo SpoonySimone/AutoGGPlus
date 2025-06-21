@@ -11,3 +11,13 @@ Compared to other exisiting AutoGG mods, AutoGG+ has some exclusive features, su
 - **Nice and easy to use configuration**: AutoGG+ uses [OneConfig](https://polyfrost.org/projects/oneconfig/) as its configuration manager, allowing you to easily change the mod's options in a beautiful interface with just a click of a button (R-SHIFT by default).
 
 # Mod showcase
+**Configuration menu**
+
+<img src=https://raw.githubusercontent.com/SpoonySimone/AutoGGPlus/refs/heads/main/images/files/config_screen.png width="75%" height="75%"/>
+
+**Mod in action**
+
+<img src=https://raw.githubusercontent.com/SpoonySimone/AutoGGPlus/refs/heads/main/images/files/chat_screen.png width="75%" height="75%"/>
+
+# Credits
+Credits to [Sk1er](https://www.youtube.com/@Sk1erDev) for a portion of the triggers list

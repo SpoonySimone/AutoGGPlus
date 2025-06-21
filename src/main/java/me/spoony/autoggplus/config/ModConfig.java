@@ -7,6 +7,13 @@ import me.spoony.autoggplus.AutoGGPlus;
 import cc.polyfrost.oneconfig.config.Config;
 import cc.polyfrost.oneconfig.config.data.Mod;
 import cc.polyfrost.oneconfig.config.data.ModType;
+import me.spoony.autoggplus.retrievers.TriggersRetriever;
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
+
+import java.util.List;
+import java.util.regex.Pattern;
 
 public class ModConfig extends Config {
 
@@ -82,6 +89,39 @@ public class ModConfig extends Config {
     )
     public static String customGGMessage = "";
 
+    @Switch(
+            name = "Minor Events",
+            subcategory = "Extras",
+            description = "Should a GG message be sent for minor events (The Pit events)?"
+    )
+    public static boolean minorEvents = false;
+
+//    @Switch(
+//            name = "Remove Karma messages",
+//            subcategory = "Extras",
+//            description = "Should karma messages be hidden in the chat?"
+//    )
+//    public static boolean hideKarma = false;
+//
+//    @Switch(
+//            name = "Remove GG messages",
+//            subcategory = "Extras",
+//            description = "Should GG messages be hidden in the chat?"
+//    )
+//    public static boolean hideGG = false;
+
+    @Button(
+            name = "Refresh Patterns",
+            text = "Refresh Patterns",
+            subcategory = "Extras",
+            description = "Click this to refresh the patterns used by the mod. This will fetch the latest patterns from the server."
+    )
+    Runnable runnable = () -> {
+        final Minecraft mc = Minecraft.getMinecraft();
+        new Thread(new TriggersRetriever()).start();
+        mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "Refreshed patterns!"));
+    };
+
     @Info(
             text = "Keep this disabled unless you know what you're doing. Enabling this will break the mod functionality.",
             subcategory = "Utilities",
@@ -96,6 +136,20 @@ public class ModConfig extends Config {
             description = "Makes the mod show the GG message only in the player's chat without actually sending it to the server."
     )
     public static boolean debug = false;
+
+    @Button(
+            name = "Print patterns",
+            text = "Print patterns",
+            subcategory = "Utilities",
+            description = "Click this to refresh the patterns used by the mod. This will fetch the latest patterns from the server."
+    )
+    Runnable runnable1 = () -> {
+        final Minecraft mc = Minecraft.getMinecraft();
+        List<Pattern> patterns = TriggersRetriever.getCompiledPatterns();
+        for (Pattern pattern : patterns) {
+            mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.AQUA + pattern.pattern()));
+        }
+    };
 
     public ModConfig() {
         super(new Mod(AutoGGPlus.NAME, ModType.HYPIXEL, "/autoggplus_icon.svg"), AutoGGPlus.MODID + ".json");
