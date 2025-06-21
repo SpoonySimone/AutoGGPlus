@@ -1,12 +1,9 @@
 package me.spoony.autoggplus.config;
 
 import cc.polyfrost.oneconfig.config.annotations.*;
-import cc.polyfrost.oneconfig.config.data.InfoType;
-import cc.polyfrost.oneconfig.config.data.OptionSize;
+import cc.polyfrost.oneconfig.config.data.*;
 import me.spoony.autoggplus.AutoGGPlus;
 import cc.polyfrost.oneconfig.config.Config;
-import cc.polyfrost.oneconfig.config.data.Mod;
-import cc.polyfrost.oneconfig.config.data.ModType;
 import me.spoony.autoggplus.retrievers.TriggersRetriever;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
@@ -124,6 +121,7 @@ public class ModConfig extends Config {
 
     @Info(
             text = "Keep this disabled unless you know what you're doing. Enabling this will break the mod functionality.",
+            category = "Debug",
             subcategory = "Utilities",
             size = 2,
             type = InfoType.ERROR // Types are: INFO, WARNING, ERROR, SUCCESS
@@ -132,6 +130,7 @@ public class ModConfig extends Config {
 
     @Switch(
             name = "Debug",
+            category = "Debug",
             subcategory = "Utilities",
             description = "Makes the mod show the GG message only in the player's chat without actually sending it to the server."
     )
@@ -140,11 +139,13 @@ public class ModConfig extends Config {
     @Button(
             name = "Print patterns",
             text = "Print patterns",
+            category = "Debug",
             subcategory = "Utilities",
             description = "Click this to refresh the patterns used by the mod. This will fetch the latest patterns from the server."
     )
     Runnable runnable1 = () -> {
         final Minecraft mc = Minecraft.getMinecraft();
+        mc.ingameGUI.getChatGUI().clearChatMessages();
         List<Pattern> patterns = TriggersRetriever.getCompiledPatterns();
         for (Pattern pattern : patterns) {
             mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.AQUA + pattern.pattern()));
