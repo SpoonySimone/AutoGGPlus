@@ -5,7 +5,7 @@
     "description": "The best AutoGG mod for Hypixel out there!",
     "version": "${version}",
     "mcversion": "${mcVersionStr}",
-    "url": "https://github.com/SpoonySimone/AutoGGPlus",
+    "url": "https://modrinth.com/mod/autoggplus",
     "updateUrl": "",
     "authorList": [
       "SpoonySimone"
