@@ -45,7 +45,6 @@ public class ModConfig extends Config {
     )
     public static boolean ignored;
 
-
     @Dropdown(
             name = "GG Message",
             subcategory = "Message Options",
