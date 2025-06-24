@@ -32,7 +32,7 @@ Thanks to [Lucide](https://lucide.dev/) for providing the message icon
 > [!WARNING]
 > This section is meant for developers who want to contribute to the mod or build it locally.
 > 
-> If you just want to use the mod, you can skip ignore this.
+> If you just want to use the mod, you can ignore this.
 
 To build the mod locally, you have to:
 1. Clone the repository
