@@ -21,14 +21,6 @@ public class ModConfig extends Config {
     )
     public static boolean ModEnabled = true;
 
-    @Info(
-            text = "If you're using 'Randomize GG message', it's better to choose 'Good Game' or 'Good Fight' as they have more characters to randomize.",
-            subcategory = "Message Options",
-            size = 2,
-            type = InfoType.INFO // Types are: INFO, WARNING, ERROR, SUCCESS
-    )
-    public static boolean ignored;
-
     @Switch(
             name = "Randomize GG message",
             subcategory = "Message Options",
@@ -44,6 +36,15 @@ public class ModConfig extends Config {
             step = 1
     )
     public static int delay = 1;
+
+    @Info(
+            text = "If you're using 'Randomize GG message', it's better to choose 'Good Game' or 'Good Fight' as they have more characters to randomize.",
+            subcategory = "Message Options",
+            size = 2,
+            type = InfoType.INFO // Types are: INFO, WARNING, ERROR, SUCCESS
+    )
+    public static boolean ignored;
+
 
     @Dropdown(
             name = "GG Message",
