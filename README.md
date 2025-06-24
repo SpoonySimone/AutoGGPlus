@@ -26,6 +26,8 @@ Compared to other exisiting AutoGG mods, AutoGG+ has some exclusive features, su
 # Credits
 Credits to [Sk1er](https://www.youtube.com/@Sk1erDev) for a portion of the triggers list
 
+Thanks to [Lucide](https://lucide.dev/) for providing the message icon
+
 # Development
 > [!WARNING]
 > This section is meant for developers who want to contribute to the mod or build it locally.

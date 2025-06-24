@@ -16,9 +16,19 @@ public class TriggersRetriever implements Runnable {
     private static final Logger LOGGER = LogManager.getLogger(TriggersRetriever.class);
     private static final String TRIGGERS_URL = "https://raw.githubusercontent.com/SpoonySimone/AutoGGPlus/refs/heads/main/triggers/latest.json";
     private final Gson gson = new Gson();
+    private static final List<Pattern> generalPatterns = new ArrayList<>();
+    private static final List<Pattern> minorPatterns = new ArrayList<>();
     private static final List<Pattern> compiledPatterns = new ArrayList<>();
     private static Pattern removeKarmaPattern = null;
     private static Pattern removeGGPattern = null;
+
+    public static List<Pattern> getGeneralPatterns() {
+        return generalPatterns;
+    }
+
+    public static List<Pattern> getMinorPatterns() {
+        return minorPatterns;
+    }
 
     public static List<Pattern> getCompiledPatterns() {
         return compiledPatterns;
@@ -42,6 +52,8 @@ public class TriggersRetriever implements Runnable {
             if (connection.getResponseCode() == 200) {
                 PatternsWrapper patternsWrapper = gson.fromJson(new InputStreamReader(connection.getInputStream()), PatternsWrapper.class);
 
+                generalPatterns.clear();
+                minorPatterns.clear();
                 compiledPatterns.clear();
 
                 LOGGER.info("Successfully fetched triggers. Compiling patterns...");
@@ -49,7 +61,7 @@ public class TriggersRetriever implements Runnable {
                 // always add general patterns
                 if (patternsWrapper.getGeneral() != null) {
                     for (String pattern : patternsWrapper.getGeneral()) {
-                        compiledPatterns.add(Pattern.compile(pattern));
+                        generalPatterns.add(Pattern.compile(pattern));
                     }
                     LOGGER.info("Compiled {} general patterns", patternsWrapper.getGeneral().size());
                 }
@@ -57,12 +69,15 @@ public class TriggersRetriever implements Runnable {
                 // add minor patterns only if enabled in config
                 if (ModConfig.minorEvents && patternsWrapper.getMinor() != null) {
                     for (String pattern : patternsWrapper.getMinor()) {
-                        compiledPatterns.add(Pattern.compile(pattern));
+                        minorPatterns.add(Pattern.compile(pattern));
                     }
                     LOGGER.info("Compiled {} minor patterns", patternsWrapper.getMinor().size());
                 } else if (!ModConfig.minorEvents) {
                     LOGGER.info("Minor events disabled, skipping minor patterns");
                 }
+
+                compiledPatterns.addAll(generalPatterns);
+                compiledPatterns.addAll(minorPatterns);
 
                 LOGGER.info("Total compiled patterns: {}", compiledPatterns.size());
 

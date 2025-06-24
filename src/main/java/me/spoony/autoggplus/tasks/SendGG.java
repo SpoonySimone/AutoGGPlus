@@ -16,8 +16,8 @@ public class SendGG {
     private static final Logger LOGGER = LogManager.getLogger(SendGG.class);
     String ggMessage;
 
-    //string "auto" or "manual"
-    public SendGG(int delay, String type) {
+    //String trigger "general", "minor", "manual"
+    public SendGG(int delay, String trigger) {
         //set ggmessage to custom if enabled
         if (ModConfig.customGGMessageEnabled) {
             ggMessage = ModConfig.customGGMessage;
@@ -36,7 +36,12 @@ public class SendGG {
             return;
         }
 
-        if ((ModConfig.ModEnabled || type == "manual") && HypixelUtils.INSTANCE.isHypixel()) {
+        //if event is minor, set ggMessage to "gg" no matter what because Hypixel accepts only that
+        if (trigger == "minor") {
+            ggMessage = "gg";
+        }
+
+        if ((ModConfig.ModEnabled || trigger == "manual") && HypixelUtils.INSTANCE.isHypixel()) {
             new Timer().schedule(new TimerTask() {
                 @Override
                 public void run() {

@@ -3,7 +3,6 @@ package me.spoony.autoggplus.listener;
 import me.spoony.autoggplus.config.ModConfig;
 import me.spoony.autoggplus.retrievers.TriggersRetriever;
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -38,11 +37,18 @@ public class ChatListener {
 //            }
 //        }
 
-        List<Pattern> patterns = TriggersRetriever.getCompiledPatterns();
-        for (Pattern pattern : patterns) {
+        List<Pattern> generalPatterns = TriggersRetriever.getGeneralPatterns();
+        List<Pattern> minorPatterns = TriggersRetriever.getMinorPatterns();
+
+        for (Pattern pattern : generalPatterns) {
             if (pattern.matcher(strippedMessage).matches()) { //check if pattern matches
-                new SendGG(ModConfig.delay, "auto");
-                return;
+                new SendGG(ModConfig.delay, "general");
+            }
+        }
+
+        for (Pattern pattern : minorPatterns) {
+            if (pattern.matcher(strippedMessage).matches()) { //check if pattern matches
+                new SendGG(ModConfig.delay, "minor");
             }
         }
     }

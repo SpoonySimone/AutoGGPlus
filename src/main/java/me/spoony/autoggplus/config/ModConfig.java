@@ -86,6 +86,14 @@ public class ModConfig extends Config {
     )
     public static String customGGMessage = "";
 
+    @Info(
+            text = "The 'Minor Events' message is always 'gg' because Hypixel only considers that valid.",
+            subcategory = "Extras",
+            size = 2,
+            type = InfoType.INFO // Types are: INFO, WARNING, ERROR, SUCCESS
+    )
+    public static boolean ignored3;
+
     @Switch(
             name = "Minor Events",
             subcategory = "Extras",
