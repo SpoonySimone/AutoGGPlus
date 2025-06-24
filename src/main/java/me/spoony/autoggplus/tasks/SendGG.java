@@ -23,7 +23,10 @@ public class SendGG {
         // check if we're still in cooldown period. used to avoid spam and false positives (such as mm)
         long currentTime = System.currentTimeMillis();
         if (currentTime - lastMessageTime < cooldown_ms) {
-            LOGGER.error("SendGG called too soon, won't send message. Time since last message: {}ms", currentTime - lastMessageTime);
+            // why this? in mm sometimes it triggers twice, therefore we only log if its higher
+            if (currentTime - lastMessageTime > 1) {
+                LOGGER.error("SendGG called too soon, won't send message. Time since last message: {}ms", currentTime - lastMessageTime);
+            }
             return;
         }
 
