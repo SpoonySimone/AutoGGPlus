@@ -28,11 +28,14 @@ Credits to [Sk1er](https://www.youtube.com/@Sk1erDev) for a portion of the trigg
 
 Thanks to [Lucide](https://lucide.dev/) for providing the message icon
 
+# Download
+You can download the mod [here](https://modrinth.com/project/autoggplus).
+
 # Development
 > [!WARNING]
 > This section is meant for developers who want to contribute to the mod or build it locally.
 > 
-> If you just want to use the mod, you can ignore this.
+> If you just want to use the mod, you can ignore this and [download the mod](https://github.com/SpoonySimone/AutoGGPlus?tab=readme-ov-file#download) instead.
 
 To build the mod locally, you have to:
 1. Clone the repository
