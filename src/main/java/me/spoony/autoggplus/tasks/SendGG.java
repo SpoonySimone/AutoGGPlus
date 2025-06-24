@@ -14,10 +14,19 @@ import java.util.TimerTask;
 public class SendGG {
     private static final Minecraft mc = Minecraft.getMinecraft();
     private static final Logger LOGGER = LogManager.getLogger(SendGG.class);
+    private static long lastMessageTime = 0;
+    private static final long cooldown_ms = 3000; //to avoid spam
     String ggMessage;
 
     //String trigger "general", "minor", "manual"
     public SendGG(int delay, String trigger) {
+        // check if we're still in cooldown period. used to avoid spam and false positives (such as mm)
+        long currentTime = System.currentTimeMillis();
+        if (currentTime - lastMessageTime < cooldown_ms) {
+            LOGGER.error("SendGG called too soon, won't send message. Time since last message: {}ms", currentTime - lastMessageTime);
+            return;
+        }
+
         //set ggmessage to custom if enabled
         if (ModConfig.customGGMessageEnabled) {
             ggMessage = ModConfig.customGGMessage;
@@ -37,11 +46,13 @@ public class SendGG {
         }
 
         //if event is minor, set ggMessage to "gg" no matter what because Hypixel accepts only that
-        if (trigger == "minor") {
+        if (trigger.equals("minor")) {
             ggMessage = "gg";
         }
 
-        if ((ModConfig.ModEnabled || trigger == "manual") && HypixelUtils.INSTANCE.isHypixel()) {
+        if ((ModConfig.ModEnabled || trigger.equals("manual")) && HypixelUtils.INSTANCE.isHypixel()) {
+            // update the timestamp for cooldown
+            lastMessageTime = currentTime;
             new Timer().schedule(new TimerTask() {
                 @Override
                 public void run() {

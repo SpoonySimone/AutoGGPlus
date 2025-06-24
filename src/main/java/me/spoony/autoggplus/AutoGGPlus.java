@@ -5,6 +5,7 @@ import me.spoony.autoggplus.command.SendGGCommand;
 import me.spoony.autoggplus.config.ModConfig;
 import me.spoony.autoggplus.listener.ChatListener;
 import me.spoony.autoggplus.retrievers.TriggersRetriever;
+import me.spoony.autoggplus.tasks.TriggersUpdater;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import cc.polyfrost.oneconfig.utils.commands.CommandManager;
@@ -36,5 +37,6 @@ public class AutoGGPlus {
     public void init(FMLInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(new ChatListener());
         new Thread(new TriggersRetriever()).start();
+        new TriggersUpdater();
     }
 }

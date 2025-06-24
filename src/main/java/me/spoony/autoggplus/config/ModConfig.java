@@ -115,22 +115,10 @@ public class ModConfig extends Config {
 //    )
 //    public static boolean hideGG = false;
 
-    @Button(
-            name = "Refresh Patterns",
-            text = "Refresh Patterns",
-            subcategory = "Extras",
-            description = "Click this to refresh the patterns used by the mod. This will fetch the latest patterns from the server."
-    )
-    Runnable runnable = () -> {
-        final Minecraft mc = Minecraft.getMinecraft();
-        new Thread(new TriggersRetriever()).start();
-        mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "Refreshed patterns!"));
-    };
-
     @Info(
             text = "Keep this disabled unless you know what you're doing. Enabling this will break the mod functionality.",
             category = "Debug",
-            subcategory = "Utilities",
+            subcategory = "General",
             size = 2,
             type = InfoType.ERROR // Types are: INFO, WARNING, ERROR, SUCCESS
     )
@@ -139,17 +127,30 @@ public class ModConfig extends Config {
     @Switch(
             name = "Debug",
             category = "Debug",
-            subcategory = "Utilities",
+            subcategory = "General",
             description = "Makes the mod show the GG message only in the player's chat without actually sending it to the server."
     )
     public static boolean debug = false;
 
     @Button(
-            name = "Print patterns",
-            text = "Print patterns",
+            name = "Force triggers refresh",
+            text = "Force triggers refresh",
             category = "Debug",
             subcategory = "Utilities",
-            description = "Click this to refresh the patterns used by the mod. This will fetch the latest patterns from the server."
+            description = "Click this to refresh the triggers used by the mod. This will fetch the latest triggers from the server."
+    )
+    Runnable runnable = () -> {
+        final Minecraft mc = Minecraft.getMinecraft();
+        new Thread(new TriggersRetriever()).start();
+        mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "Refreshed triggers!"));
+    };
+
+    @Button(
+            name = "Print triggers",
+            text = "Print triggers",
+            category = "Debug",
+            subcategory = "Utilities",
+            description = "Click this to print the triggers used by the mod."
     )
     Runnable runnable1 = () -> {
         final Minecraft mc = Minecraft.getMinecraft();
