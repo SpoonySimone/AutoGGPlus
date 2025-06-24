@@ -22,7 +22,7 @@ public class ModConfig extends Config {
     public static boolean ModEnabled = true;
 
     @Info(
-            text = "If you're using 'Randomize GG message', it's recommended to use 'Good Game' or 'Good Fight', as they have more characters that can be randomized.",
+            text = "If you're using 'Randomize GG message,' it's better to choose 'Good Game' or 'Good Fight' as they have more characters to randomize.",
             subcategory = "Message Options",
             size = 2,
             type = InfoType.INFO // Types are: INFO, WARNING, ERROR, SUCCESS
