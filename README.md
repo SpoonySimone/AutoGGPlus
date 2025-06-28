@@ -28,6 +28,8 @@ Credits to [Sk1er](https://www.youtube.com/@Sk1erDev) for a portion of the trigg
 
 Thanks to [Lucide](https://lucide.dev/) for providing the message icon
 
+[![OneConfig Badge](https://polyfrost.org/media/branding/badges/badge_1.svg)](https://polyfrost.org/projects/oneconfig/)
+
 # Download
 You can download the mod [here](https://modrinth.com/project/autoggplus).
 
