@@ -13,11 +13,11 @@ Compared to other exisiting AutoGG mods, AutoGG+ has some exclusive features, su
 # Mod showcase
 **Configuration menu**
 
-<img src=https://raw.githubusercontent.com/SpoonySimone/AutoGGPlus/refs/heads/main/images/files/config_screen.png width="75%" height="75%"/>
+![Configuration menu](https://raw.githubusercontent.com/SpoonySimone/AutoGGPlus/refs/heads/main/images/files/config_screen.png)
 
 **Mod in action**
 
-<img src=https://raw.githubusercontent.com/SpoonySimone/AutoGGPlus/refs/heads/main/images/files/chat_screen.png width="75%" height="75%"/>
+![Mod in action](https://raw.githubusercontent.com/SpoonySimone/AutoGGPlus/refs/heads/main/images/files/chat_screen.png)
 
 # Commands
 - `/autoggplus` - Opens the configuration menu.
