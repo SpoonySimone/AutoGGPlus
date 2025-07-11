@@ -33,7 +33,7 @@ Thanks to [Lucide](https://lucide.dev/) for providing the message icon
 # Disclaimers
 This product is not affiliated or endorsed by Hypixel in any way.
 
-[As with all mods on Hypixel](https://hypixel.net/allowed-mods), **you use this at your own risk**. That said, AutoGG mods have **never** led to a ban.
+[As with all mods on Hypixel](https://hypixel.net/allowed-mods), **you use this at your own risk**. That said, AutoGG mods have **never** led to any punishment.
 
 # Download
 You can download the mod [here](https://modrinth.com/project/autoggplus).
