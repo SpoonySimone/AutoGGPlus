@@ -5,6 +5,7 @@ import cc.polyfrost.oneconfig.config.data.*;
 import me.spoony.autoggplus.AutoGGPlus;
 import cc.polyfrost.oneconfig.config.Config;
 import me.spoony.autoggplus.retrievers.TriggersRetriever;
+import me.spoony.autoggplus.utils.Updater;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
@@ -100,6 +101,25 @@ public class ModConfig extends Config {
             description = "Should a GG message be sent for minor events (The Pit events)?"
     )
     public static boolean minorEvents = false;
+
+    @Switch(
+            name = "Automatic update checker",
+            category = "Updates",
+            subcategory = "General",
+            description = "Should the mod check for updates on startup?"
+    )
+    public static boolean updateCheck = true;
+
+    @Button(
+            name = "Check for updates",
+            text = "Check for updates",
+            category = "Updates",
+            subcategory = "General",
+            description = "Click this to check for updates"
+    )
+    Runnable runnableUpdate = () -> {
+        Updater.run(1);
+    };
 
 //    @Switch(
 //            name = "Remove Karma messages",
