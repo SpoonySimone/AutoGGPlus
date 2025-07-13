@@ -45,14 +45,14 @@ public class AutoGGPlus {
         new Thread(new TriggersRetriever()).start();
         new TriggersUpdater();
         Updater.checkUpdate();
-        if (Updater.shouldSendUpdateMessage) {
+        if (Updater.updateAvailable) {
             Notifications.INSTANCE.send("AutoGGPlus", "A newer version is available on Modrinth!", 3000);
         }
     }
 
     @Subscribe
     public void onWorldLoad(WorldLoadEvent event) {
-        if (ModConfig.updateCheck && Updater.shouldSendUpdateMessage) {
+        if (ModConfig.updateCheck && Updater.updateAvailable) {
             Updater.run(0);
         }
     }

@@ -20,7 +20,7 @@ public class Updater {
     private static final Minecraft mc = Minecraft.getMinecraft();
     public static String latestVersion;
     public static boolean updateChecked = false;
-    public static boolean shouldSendUpdateMessage = false;
+    public static boolean updateAvailable = false;
     public static boolean sentUpdateMessage = false;
     public static String modrinthLink = "https://modrinth.com/project/j9cYkjUb/versions";
 
@@ -30,7 +30,7 @@ public class Updater {
             checkUpdate();
         }
 
-        if (mode == 1) {
+        if (mode == 1 && updateAvailable) {
             sendUpdateMessage(mode);
         } else if (mode == 0) {
             new Timer().schedule(new TimerTask() {
@@ -62,7 +62,7 @@ public class Updater {
             if (!currentVersion.equals(latestVersion)) {
                 LOGGER.warn("A newer version " + latestVersion + " is available! Please consider updating! ("
                         + currentVersion + ")");
-                shouldSendUpdateMessage = true;
+                updateAvailable = true;
             } else {
                 LOGGER.info("Already on latest version (" + latestVersion + ")");
             }
@@ -83,7 +83,7 @@ public class Updater {
             IChatComponent link = new ChatComponentText("Click here to download it from Modrinth");
             ChatStyle style = new ChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, modrinthLink));
             style.setChatHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,
-                    new ChatComponentText(EnumChatFormatting.BOLD.toString() + EnumChatFormatting.UNDERLINE + EnumChatFormatting.GREEN + modrinthLink)));
+                    new ChatComponentText(EnumChatFormatting.BOLD.toString() + EnumChatFormatting.UNDERLINE + EnumChatFormatting.GREEN + "Opens in your default browser")));
             style.setColor(EnumChatFormatting.GREEN);
             style.setBold(true);
             style.setUnderlined(true);
