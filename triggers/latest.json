@@ -23,6 +23,6 @@
     "^GIANT CAKE! Event ended! Cake's gone!$",
     "^PIT EVENT ENDED: .+ \\[INFO\\]$"
   ],
-  "hideKarma": ",^\\+(?<karma>\\d)+ Karma!$",
+  "hideKarma": "^\+(?<karma>\d+) Karma!$",
   "hideGG": "(?i)\\b(gg|good\\s+game)\\b"
 }
