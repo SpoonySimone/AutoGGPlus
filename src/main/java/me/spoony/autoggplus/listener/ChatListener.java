@@ -21,21 +21,19 @@ public class ChatListener {
 
         String strippedMessage = EnumChatFormatting.getTextWithoutFormattingCodes(event.message.getUnformattedText());
 
-//        if (ModConfig.hideKarma) {
-//            Pattern removeKarmaPattern = TriggersRetriever.getRemoveKarmaPattern();
-//            if (removeKarmaPattern != null && removeKarmaPattern.matcher(strippedMessage).matches()) {
-//                event.setCanceled(true);
-//                mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.LIGHT_PURPLE + "REMOVED A KARMA MESSAGE"));
-//            }
-//        }
-//
-//        if (ModConfig.hideGG) {
-//            Pattern removeGGPattern = TriggersRetriever.getRemoveGGPattern();
-//            if (removeGGPattern != null && removeGGPattern.matcher(strippedMessage).matches()) {
-//                event.setCanceled(true);
-//                mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_PURPLE + "REMOVED A GG MESSAGE"));
-//            }
-//        }
+        if (ModConfig.removeKarma) {
+            Pattern removeKarmaPattern = TriggersRetriever.getRemoveKarmaPattern();
+            if (removeKarmaPattern != null && removeKarmaPattern.matcher(strippedMessage).matches()) {
+                event.setCanceled(true);
+            }
+        }
+
+        if (ModConfig.removeGG) {
+            Pattern removeGGPattern = TriggersRetriever.getRemoveGGPattern();
+            if (removeGGPattern != null && removeGGPattern.matcher(strippedMessage).matches()) {
+                event.setCanceled(true);
+            }
+        }
 
         List<Pattern> generalPatterns = TriggersRetriever.getGeneralPatterns();
         List<Pattern> minorPatterns = TriggersRetriever.getMinorPatterns();

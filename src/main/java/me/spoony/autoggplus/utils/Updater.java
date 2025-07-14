@@ -80,7 +80,7 @@ public class Updater {
             mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.WHITE + "A newer version of " + EnumChatFormatting.GREEN + "AutoGGPlus " + EnumChatFormatting.WHITE + "is available!"));
             mc.thePlayer.addChatMessage(new ChatComponentText("You are on version " + EnumChatFormatting.BLUE + AutoGGPlus.VERSION + EnumChatFormatting.WHITE + ". The latest version is " + EnumChatFormatting.BLUE + Updater.latestVersion + EnumChatFormatting.WHITE + "."));
 
-            IChatComponent link = new ChatComponentText("Click here to download it from Modrinth");
+            IChatComponent link = new ChatComponentText("Click here to download from Modrinth");
             ChatStyle style = new ChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, modrinthLink));
             style.setChatHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,
                     new ChatComponentText(EnumChatFormatting.BOLD.toString() + EnumChatFormatting.UNDERLINE + EnumChatFormatting.GREEN + "Opens in your default browser")));

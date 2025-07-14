@@ -97,6 +97,7 @@ public class ModConfig extends Config {
 
     @Switch(
             name = "Minor Events",
+            size = OptionSize.DUAL,
             subcategory = "Extras",
             description = "Should a GG message be sent for minor events (The Pit events)?"
     )
@@ -121,19 +122,19 @@ public class ModConfig extends Config {
         Updater.run(1);
     };
 
-//    @Switch(
-//            name = "Remove Karma messages",
-//            subcategory = "Extras",
-//            description = "Should karma messages be hidden in the chat?"
-//    )
-//    public static boolean hideKarma = false;
-//
-//    @Switch(
-//            name = "Remove GG messages",
-//            subcategory = "Extras",
-//            description = "Should GG messages be hidden in the chat?"
-//    )
-//    public static boolean hideGG = false;
+    @Switch(
+            name = "Remove Karma messages",
+            subcategory = "Extras",
+            description = "Should the karma messages be hidden from chat?"
+    )
+    public static boolean removeKarma = false;
+
+    @Switch(
+            name = "Remove GG messages",
+            subcategory = "Extras",
+            description = "Should the GG messages be hidden from chat?"
+    )
+    public static boolean removeGG = false;
 
     @Info(
             text = "Keep this disabled unless you know what you're doing. Enabling this will break the mod functionality.",
@@ -154,7 +155,7 @@ public class ModConfig extends Config {
 
     @Button(
             name = "Force triggers refresh",
-            text = "Force triggers refresh",
+            text = "Run",
             category = "Debug",
             subcategory = "Utilities",
             description = "Click this to refresh the triggers used by the mod. This will fetch the latest triggers from the server."
@@ -167,7 +168,7 @@ public class ModConfig extends Config {
 
     @Button(
             name = "Print triggers",
-            text = "Print triggers",
+            text = "Print",
             category = "Debug",
             subcategory = "Utilities",
             description = "Click this to print the triggers used by the mod."
@@ -179,6 +180,33 @@ public class ModConfig extends Config {
         for (Pattern pattern : patterns) {
             mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.AQUA + pattern.pattern()));
         }
+    };
+
+    @Button(
+            name = "Remove Karma Trigger",
+            text = "Print",
+            category = "Debug",
+            subcategory = "Utilities",
+            description = "Click this to print the remove karma trigger used by the mod."
+    )
+    Runnable runnablekarma = () -> {
+        final Minecraft mc = Minecraft.getMinecraft();
+        mc.ingameGUI.getChatGUI().clearChatMessages();
+        mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.AQUA + TriggersRetriever.getRemoveKarmaPattern().toString()));
+    };
+
+
+    @Button(
+            name = "Remove GG Trigger",
+            text = "Print",
+            category = "Debug",
+            subcategory = "Utilities",
+            description = "Click this to print the remove gg trigger used by the mod."
+    )
+    Runnable runnablegg = () -> {
+        final Minecraft mc = Minecraft.getMinecraft();
+        mc.ingameGUI.getChatGUI().clearChatMessages();
+        mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.AQUA + TriggersRetriever.getRemoveGGPattern().toString()));
     };
 
     public ModConfig() {
