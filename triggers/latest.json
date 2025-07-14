@@ -24,5 +24,5 @@
     "^PIT EVENT ENDED: .+ \\[INFO\\]$"
   ],
   "removeKarma": "^\\+(?<karma>\\d+) Karma!$",
-  "removeGG": "(?i)\\b(gg|good\\s+game)\\b"
+  "removeGG": "^(?:\\[.*?\\]\\s+)?([a-zA-Z0-9_]{1,15}):\\s(?:[gG]{2}|[gG][oO][oO][dD]\\s+[gG][aA][mM][eE])$"
 }
