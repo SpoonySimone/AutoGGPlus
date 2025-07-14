@@ -78,7 +78,7 @@ public class Updater {
             mc.thePlayer.playSound("minecraft:random.successful_hit", 1.0F, 1.0F);
 
             mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.WHITE + "A newer version of " + EnumChatFormatting.GREEN + "AutoGGPlus " + EnumChatFormatting.WHITE + "is available!"));
-            mc.thePlayer.addChatMessage(new ChatComponentText("You are on version " + EnumChatFormatting.BLUE + AutoGGPlus.VERSION + EnumChatFormatting.WHITE + ". The latest version is " + EnumChatFormatting.BLUE + Updater.latestVersion + EnumChatFormatting.WHITE + "."));
+            mc.thePlayer.addChatMessage(new ChatComponentText("The latest version is " + EnumChatFormatting.BLUE + Updater.latestVersion + EnumChatFormatting.WHITE + ", you are on version " + EnumChatFormatting.BLUE + AutoGGPlus.VERSION + EnumChatFormatting.WHITE + "."));
 
             IChatComponent link = new ChatComponentText("Click here to download from Modrinth");
             ChatStyle style = new ChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, modrinthLink));
