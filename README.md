@@ -10,6 +10,7 @@ Compared to other exisiting AutoGG mods, AutoGG+ has some exclusive features, su
 - **Accurate triggers**: No false positives - AutoGG+ uses accurate patterns to detect when a game finishes, ensuring you don't randomly shout "Good Game!" in the middle of a game.
 - **Support for the latest Hypixel games**: AutoGG+ supports most of Hypixel games (with more to come!).
 - **Nice and easy to use configuration**: AutoGG+ uses [OneConfig](https://polyfrost.org/projects/oneconfig/) as its configuration manager, allowing you to easily change the mod's options in a beautiful interface with just a click of a button (R-SHIFT by default).
+- **Plug and play**: Just install the mod and it's ready to work, no configuration required!
 
 # Mod showcase
 **Configuration menu**
