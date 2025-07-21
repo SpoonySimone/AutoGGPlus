@@ -46,16 +46,16 @@ You can download the mod [here](https://modrinth.com/project/autoggplus).
 > 
 > If you just want to use the mod, you can ignore this and [download the mod](https://github.com/SpoonySimone/AutoGGPlus?tab=readme-ov-file#download) instead.
 
+> [!NOTE]
+> You need to have [Git](https://git-scm.com/) & [JDK 17](https://adoptium.net/temurin/releases?version=17&os=any&arch=any) installed on your computer.
+
 To build the mod locally, you have to:
-1. Clone the repository
+1. Clone the repository and navigate to it
+
    ```
-   git clone https://github.com/SpoonySimone/AutoGGPlus
+   git clone https://github.com/SpoonySimone/AutoGGPlus; cd AutoGGPlus
    ``` 
-2. Navigate to the cloned repository
-   ```
-   cd AutoGGPlus
-   ```
-3. Build the mod using Gradle
+2. Build the mod using Gradle
 
     **Linux**
     ```
@@ -65,4 +65,4 @@ To build the mod locally, you have to:
     ```
     gradlew.bat build
     ```
-4. The built mod will be located in `/versions/1.8.9-forge/build/libs/`
+3. The built mod will be located in `/versions/1.8.9-forge/build/libs/`
