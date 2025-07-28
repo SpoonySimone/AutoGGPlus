@@ -2,6 +2,8 @@ package me.spoony.autoggplus.tasks;
 
 import cc.polyfrost.oneconfig.utils.hypixel.HypixelUtils;
 import me.spoony.autoggplus.config.ModConfig;
+import me.spoony.autoggplus.utils.ConvertDropdown;
+import me.spoony.autoggplus.utils.RandomizeCharacters;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;

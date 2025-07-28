@@ -1,4 +1,4 @@
-package me.spoony.autoggplus.tasks;
+package me.spoony.autoggplus.utils;
 
 import java.util.Random;
 
