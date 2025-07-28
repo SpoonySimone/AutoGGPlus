@@ -46,7 +46,7 @@ public class AutoGGPlus {
         new TriggersUpdater();
         Updater.checkUpdate();
         if (Updater.updateAvailable) {
-            Notifications.INSTANCE.send("AutoGGPlus", "A newer version is available on Modrinth!", 3000);
+            Notifications.INSTANCE.send(NAME, "A newer version is available on Modrinth!", 3000);
         }
     }
 
