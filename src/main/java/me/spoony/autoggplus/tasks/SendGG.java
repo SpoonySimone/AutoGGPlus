@@ -19,9 +19,13 @@ public class SendGG {
     private static long lastMessageTime = 0;
     private static final long cooldown_ms = 3000; //to avoid spam
     String ggMessage;
+    String secondMessage = ModConfig.secondMessage;
 
     //String trigger "general", "minor", "manual"
     public SendGG(int delay, String trigger) {
+        //--------------------
+        //anti-spam checks
+        //--------------------
         // check if we're still in cooldown period. used to avoid spam and false positives (such as mm)
         long currentTime = System.currentTimeMillis();
         if (currentTime - lastMessageTime < cooldown_ms) {
@@ -32,21 +36,36 @@ public class SendGG {
             return;
         }
 
-        //set ggmessage to custom if enabled
+        //--------------------
+        //custom gg message
+        //--------------------
         if (ModConfig.customGGMessageEnabled) {
             ggMessage = ModConfig.customGGMessage;
         } else {
             ggMessage = ConvertDropdown.getGGMessage(ModConfig.ggMessage);
         }
 
-        //randomize if enabled in config
+        //--------------------
+        //randomization
+        //--------------------
+        //main gg message
         if (ModConfig.randomGG) {
             ggMessage = RandomizeCharacters.randomize(ggMessage);
         }
+        //second message
+        if (ModConfig.randomSecondMessage) {
+            secondMessage = RandomizeCharacters.randomize(secondMessage);
+        }
 
-        //if debug is enabled, just show the user the message instead of sending in chat
+        //--------------------
+        //debug
+        //--------------------
+        //if debug is enabled, just show the user the message(s) instead of sending in chat
         if (ModConfig.debug) {
             mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + ggMessage));
+            if (ModConfig.secondMessageEnabled) {
+                mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + secondMessage));
+            }
             return;
         }
 
@@ -55,7 +74,10 @@ public class SendGG {
             ggMessage = "gg";
         }
 
-        if ((ModConfig.ModEnabled || trigger.equals("manual")) && HypixelUtils.INSTANCE.isHypixel()) {
+        //--------------------
+        //send message(s)
+        //--------------------
+        if ((ModConfig.modEnabled || trigger.equals("manual")) && HypixelUtils.INSTANCE.isHypixel()) {
             // update the timestamp for cooldown
             lastMessageTime = currentTime;
             new Timer().schedule(new TimerTask() {
@@ -65,5 +87,15 @@ public class SendGG {
                 }
             }, delay * 1000L);
         }
+
+        if (ModConfig.modEnabled && ModConfig.secondMessageEnabled && trigger.equals("general") && HypixelUtils.INSTANCE.isHypixel()) {
+            new Timer().schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    mc.thePlayer.sendChatMessage("/ac " + secondMessage);
+                }
+            }, ModConfig.secondDelay * 1000L);
+        }
+
     }
 }

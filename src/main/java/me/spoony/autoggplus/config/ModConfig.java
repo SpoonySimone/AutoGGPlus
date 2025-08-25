@@ -20,7 +20,7 @@ public class ModConfig extends Config {
             subcategory = "General",
             description = "Enable/disable the mod"
     )
-    public static boolean ModEnabled = true;
+    public static boolean modEnabled = true;
 
     @Switch(
             name = "Randomize GG message",
@@ -73,7 +73,7 @@ public class ModConfig extends Config {
     public static boolean ignored1;
 
     @Switch(
-            name = "Use Custom GG Message",
+            name = "Custom GG Message",
             subcategory = "Message Options",
             description = "Whether the mod should use a custom GG message or not. If enabled, the 'GG Message' selector above will be ignored."
     )
@@ -86,6 +86,38 @@ public class ModConfig extends Config {
             placeholder = "Enter your custom message here"
     )
     public static String customGGMessage = "";
+
+    @Switch(
+            name = "Enable second message",
+            subcategory = "Second Message Options",
+            description = "Enable/disable the second message"
+    )
+    public static boolean secondMessageEnabled = false;
+
+    @Switch(
+            name = "Randomize second message",
+            subcategory = "Second Message Options",
+            description = "Whether the mod should randomize the second message to bypass Hypixel's anti-spam system or not"
+    )
+    public static boolean randomSecondMessage = false;
+
+    @Slider(
+            name = "Delay",
+            subcategory = "Second Message Options",
+            description = "What should the delay before sending the second message be?",
+            min = 0, max = 10,
+            step = 1
+    )
+    public static int secondDelay = 2;
+
+    @Text(
+            name = "Second Message",
+            subcategory = "Second Message Options",
+            description = "What second message should the mod send when a game finishes?",
+            size = OptionSize.DUAL,
+            placeholder = "Enter your second message here"
+    )
+    public static String secondMessage = "AutoGG+ by SpoonySimone!";
 
     @Info(
             text = "The 'Minor Events' message is always 'gg' because Hypixel only considers that valid.",
@@ -102,6 +134,20 @@ public class ModConfig extends Config {
             description = "Should a GG message be sent for minor events (The Pit events)?"
     )
     public static boolean minorEvents = false;
+
+    @Switch(
+            name = "Remove Karma messages",
+            subcategory = "Extras",
+            description = "Should the karma messages be hidden from chat?"
+    )
+    public static boolean removeKarma = false;
+
+    @Switch(
+            name = "Remove GG messages",
+            subcategory = "Extras",
+            description = "Should the GG messages be hidden from chat?"
+    )
+    public static boolean removeGG = false;
 
     @Switch(
             name = "Automatic update checker",
@@ -121,20 +167,6 @@ public class ModConfig extends Config {
     Runnable runnableUpdate = () -> {
         Updater.run(1);
     };
-
-    @Switch(
-            name = "Remove Karma messages",
-            subcategory = "Extras",
-            description = "Should the karma messages be hidden from chat?"
-    )
-    public static boolean removeKarma = false;
-
-    @Switch(
-            name = "Remove GG messages",
-            subcategory = "Extras",
-            description = "Should the GG messages be hidden from chat?"
-    )
-    public static boolean removeGG = false;
 
     @Info(
             text = "Keep this disabled unless you know what you're doing. Enabling this will break the mod functionality.",
@@ -213,6 +245,23 @@ public class ModConfig extends Config {
         super(new Mod(AutoGGPlus.NAME, ModType.HYPIXEL, "/autoggplus_icon.svg"), AutoGGPlus.MODID + ".json");
         initialize();
         addDependency("customGGMessage", "customGGMessageEnabled");
+        addDependency("randomSecondMessage","secondMessageEnabled");
+        addDependency("secondDelay","secondMessageEnabled");
+        addDependency("secondMessage","secondMessageEnabled");
+
+        // disable everything if mod is disabled
+        addDependency("randomGG", "modEnabled");
+        addDependency("delay", "modEnabled");
+        addDependency("ggMessage", "modEnabled");
+        addDependency("customGGMessageEnabled", "modEnabled");
+        addDependency("customGGMessage", "modEnabled");
+        addDependency("secondMessageEnabled", "modEnabled");
+        addDependency("randomSecondMessage", "modEnabled");
+        addDependency("secondDelay", "modEnabled");
+        addDependency("secondMessage", "modEnabled");
+        addDependency("minorEvents", "modEnabled");
+        addDependency("removeKarma", "modEnabled");
+        addDependency("removeGG", "modEnabled");
     }
 }
 
