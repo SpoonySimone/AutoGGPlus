@@ -15,7 +15,8 @@
     "^ +Zombies - \\d*:?\\d+:\\d+ \\(Round \\d+\\)$",
     "^ +. YOUR STATISTICS .$",
     "^ {36}Winner(s?)$",
-    "^ {21}Bridge CTF [a-zA-Z]+ - \\d\\d:\\d\\d$"
+    "^ {21}Bridge CTF [a-zA-Z]+ - \\d\\d:\\d\\d$",
+    "^ +(?:Survivors \\(\\d+\\):|Nobody survived!)$"
   ],
   "minor": [
     "^MINOR EVENT! .+ in .+ ended$",
@@ -26,3 +27,4 @@
   "removeKarma": "^\\+(?<karma>\\d+) Karma!$",
   "removeGG": "^(?:\\[.*?\\]\\s+)?([a-zA-Z0-9_]{1,15}):\\s(?:[gG]{2}|[gG][oO][oO][dD]\\s+[gG][aA][mM][eE])$"
 }
+
