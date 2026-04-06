@@ -17,7 +17,8 @@
     "^ {36}Winner(s?)$",
     "^ {21}Bridge CTF [a-zA-Z]+ - \\d\\d:\\d\\d$",
     "^ +(?:Survivors \\(\\d+\\):|Nobody survived!)$",
-    "^\\s*Total Fails: \\d+\\s*$"
+    "^\\s*Total Fails: \\d+\\s*$",
+    "^ +You didn't finish!$"
   ],
   "minor": [
     "^MINOR EVENT! .+ in .+ ended$",
